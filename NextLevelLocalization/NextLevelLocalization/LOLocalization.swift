@@ -2,7 +2,7 @@
 
 import Foundation
 
-public final class BKLocalizable {
+public final class LOLocalizable {
     
     public typealias LanguageKey = String
     public typealias Language = Dictionary<String, String>
@@ -11,11 +11,11 @@ public final class BKLocalizable {
     let tableName: String
     let translations: Translations
     
-    static let BKBundleName = "BKLocalizable.bundle"
+    static let LOBundleName = "LOLocalizable.bundle"
     let manager = FileManager.default
     lazy var bundlePath: URL = {
         let documents = URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!)
-        let bundlePath = documents.appendingPathComponent(BKLocalizable.BKBundleName, isDirectory: true)
+        let bundlePath = documents.appendingPathComponent(LOLocalizable.LOBundleName, isDirectory: true)
         return bundlePath
     }()
     

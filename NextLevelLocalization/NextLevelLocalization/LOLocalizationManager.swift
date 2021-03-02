@@ -1,21 +1,21 @@
 
 import Foundation
-import UIKit
-@objcMembers class BKLocalizationManager : NSObject {
-    private static var privateSharedInstance: BKLocalizationManager?
-    static var sharedInstance: BKLocalizationManager {
-        if privateSharedInstance == nil {
-            privateSharedInstance = BKLocalizationManager()
-        }
-        return privateSharedInstance!
-    }
+
+struct DictionaryLanguage: Codable {
+    let code: String
+    var fullName: String
+}
+
+public final class LOLocalizationManager : NSObject {
  
+    static let shared = LOLocalizationManager()
+
     var currentBundle = Bundle.main
     
     let manager = FileManager.default
     lazy var bundlePath: URL = {
         let documents = URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!)
-        let bundlePath = documents.appendingPathComponent(BKLocalizable.BKBundleName, isDirectory: true)
+        let bundlePath = documents.appendingPathComponent(LOLocalizable.LOBundleName, isDirectory: true)
         return bundlePath
     }()
 

@@ -3,22 +3,12 @@
 import Foundation
 import UIKit
 
-class BKLanguageServiceManager {
-    private static var privateSharedInstance: BKLanguageServiceManager?
-    static var sharedInstance: BKLanguageServiceManager {
-        if privateSharedInstance == nil {
-            privateSharedInstance = BKLanguageServiceManager()
-            privateSharedInstance?.commonInit()
-        }
-        return privateSharedInstance!
-    }
+class LOLanguageServiceManager {
+    static let shared = LOLanguageServiceManager()
     var labelView:UIVisualEffectView = UIVisualEffectView()
     var labelVerifying:UILabel = UILabel()
     var spinner:UIActivityIndicatorView = UIActivityIndicatorView(style: .gray)
-    func commonInit() {
-            languagesArray = BKLocalizationManager.sharedInstance.getLocalLanguageVersions()
-    }
-    var languagesArray: [DictionaryLanguage]!
+    var languagesArray: [DictionaryLanguage] = LOLocalizationManager.shared.getLocalLanguageVersions()
     func getLanguagesFromServer(url: URL,fromVC:UIViewController)  {
         self.showLoading()
         let task = URLSession.shared.dataTask(with: url as URL) { data, response, error in
@@ -35,7 +25,7 @@ class BKLanguageServiceManager {
                         let translations = lang["translations"] as? Dictionary<String,String>
                         let langName = lang["code"] as? String
                         let dict : Dictionary<String, Dictionary<String, String>> = [langName!: translations!]
-                        let rt = BKLocalizable(translations:dict)
+                        let rt = LOLocalizable(translations:dict)
                         do {
                             _ = try rt.writeToBundle()
                         }catch {

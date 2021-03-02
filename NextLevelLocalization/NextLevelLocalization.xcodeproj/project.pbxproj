@@ -16,11 +16,10 @@
 		9E31595123995D0100F78662 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E31595023995D0100F78662 /* Assets.xcassets */; };
 		9E3159602399622B00F78662 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E31595E2399622B00F78662 /* HomeViewController.swift */; };
 		9E3159612399622B00F78662 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E31595F2399622B00F78662 /* HomeViewController.xib */; };
-		9E3159632399648B00F78662 /* BKLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3159622399648B00F78662 /* BKLocalization.swift */; };
-		9E315967239965F000F78662 /* BKLocalizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E315966239965F000F78662 /* BKLocalizationManager.swift */; };
-		9E31596C239967E900F78662 /* LanguageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E31596A239967E900F78662 /* LanguageController.swift */; };
+		9E3159632399648B00F78662 /* LOLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3159622399648B00F78662 /* LOLocalization.swift */; };
+		9E315967239965F000F78662 /* LOLocalizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E315966239965F000F78662 /* LOLocalizationManager.swift */; };
 		9E31596D239967E900F78662 /* LanguagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E31596B239967E900F78662 /* LanguagePickerView.swift */; };
-		9E3159712399699000F78662 /* BKLanguageServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3159702399699000F78662 /* BKLanguageServiceManager.swift */; };
+		9E3159712399699000F78662 /* LOLanguageServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3159702399699000F78662 /* LOLanguageServiceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,11 +34,10 @@
 		9E31595523995D0100F78662 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E31595E2399622B00F78662 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9E31595F2399622B00F78662 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
-		9E3159622399648B00F78662 /* BKLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKLocalization.swift; sourceTree = "<group>"; };
-		9E315966239965F000F78662 /* BKLocalizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKLocalizationManager.swift; sourceTree = "<group>"; };
-		9E31596A239967E900F78662 /* LanguageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageController.swift; sourceTree = "<group>"; };
+		9E3159622399648B00F78662 /* LOLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOLocalization.swift; sourceTree = "<group>"; };
+		9E315966239965F000F78662 /* LOLocalizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOLocalizationManager.swift; sourceTree = "<group>"; };
 		9E31596B239967E900F78662 /* LanguagePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguagePickerView.swift; sourceTree = "<group>"; };
-		9E3159702399699000F78662 /* BKLanguageServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKLanguageServiceManager.swift; sourceTree = "<group>"; };
+		9E3159702399699000F78662 /* LOLanguageServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOLanguageServiceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,11 +100,10 @@
 				9E31594923995CFD00F78662 /* AppDelegate.swift */,
 				9E31595E2399622B00F78662 /* HomeViewController.swift */,
 				9E31595F2399622B00F78662 /* HomeViewController.xib */,
-				9E3159622399648B00F78662 /* BKLocalization.swift */,
-				9E315966239965F000F78662 /* BKLocalizationManager.swift */,
-				9E31596A239967E900F78662 /* LanguageController.swift */,
+				9E3159622399648B00F78662 /* LOLocalization.swift */,
+				9E315966239965F000F78662 /* LOLocalizationManager.swift */,
 				9E31596B239967E900F78662 /* LanguagePickerView.swift */,
-				9E3159702399699000F78662 /* BKLanguageServiceManager.swift */,
+				9E3159702399699000F78662 /* LOLanguageServiceManager.swift */,
 				9E1CE305239FEA25008119E2 /* ReadMe.md */,
 				9E31595023995D0100F78662 /* Assets.xcassets */,
 				9E31595523995D0100F78662 /* Info.plist */,
@@ -142,7 +139,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = AIT;
 				TargetAttributes = {
 					9E31594523995CFD00F78662 = {
@@ -192,13 +189,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E315967239965F000F78662 /* BKLocalizationManager.swift in Sources */,
+				9E315967239965F000F78662 /* LOLocalizationManager.swift in Sources */,
 				9E31596D239967E900F78662 /* LanguagePickerView.swift in Sources */,
 				9E31594A23995CFD00F78662 /* AppDelegate.swift in Sources */,
-				9E3159632399648B00F78662 /* BKLocalization.swift in Sources */,
+				9E3159632399648B00F78662 /* LOLocalization.swift in Sources */,
 				9E3159602399622B00F78662 /* HomeViewController.swift in Sources */,
-				9E31596C239967E900F78662 /* LanguageController.swift in Sources */,
-				9E3159712399699000F78662 /* BKLanguageServiceManager.swift in Sources */,
+				9E3159712399699000F78662 /* LOLanguageServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +232,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -258,6 +255,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -297,6 +295,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -319,6 +318,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -355,7 +355,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H2C4R2VE3A;
 				INFOPLIST_FILE = NextLevelLocalization/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -374,7 +374,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H2C4R2VE3A;
 				INFOPLIST_FILE = NextLevelLocalization/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

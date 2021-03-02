@@ -30,11 +30,11 @@ class LanguagePickerView: UIPickerView,UIPickerViewDataSource,UIPickerViewDelega
         toolBar.isTranslucent = true
         toolBar.tintColor = .black
         toolBar.sizeToFit()
-        doneButton = UIBarButtonItem(title: NSLocalizedString("Done", tableName: nil, bundle: BKLocalizationManager.sharedInstance.currentBundle, value: "", comment: ""), style: .plain, target: self, action: #selector(doneTapped))
+        doneButton = UIBarButtonItem(title: NSLocalizedString("Done", tableName: nil, bundle: LOLocalizationManager.shared.currentBundle, value: "", comment: ""), style: .plain, target: self, action: #selector(doneTapped))
         doneButton.tag = 100
         doneButton.tintColor = UIColor(displayP3Red: 45/255, green: 118/255, blue: 216/255, alpha: 1.0)
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        cancelButton = UIBarButtonItem(title:  NSLocalizedString("Cancel", tableName: nil, bundle: BKLocalizationManager.sharedInstance.currentBundle, value: "", comment: ""), style: .plain, target: self, action: #selector(cancelTapped))
+        cancelButton = UIBarButtonItem(title:  NSLocalizedString("Cancel", tableName: nil, bundle: LOLocalizationManager.shared.currentBundle, value: "", comment: ""), style: .plain, target: self, action: #selector(cancelTapped))
         cancelButton.tag = 101
         
         toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
@@ -45,12 +45,12 @@ class LanguagePickerView: UIPickerView,UIPickerViewDataSource,UIPickerViewDelega
         self.toolbar = toolBar
     }
     func updateViewForLocalisation()  {
-        self.doneButton.title = NSLocalizedString("Done", tableName: nil, bundle: BKLocalizationManager.sharedInstance.currentBundle, value: "", comment: "")
-        self.cancelButton.title = NSLocalizedString("Cancel", tableName: nil, bundle: BKLocalizationManager.sharedInstance.currentBundle, value: "", comment: "")
+        self.doneButton.title = NSLocalizedString("Done", tableName: nil, bundle: LOLocalizationManager.shared.currentBundle, value: "", comment: "")
+        self.cancelButton.title = NSLocalizedString("Cancel", tableName: nil, bundle: LOLocalizationManager.shared.currentBundle, value: "", comment: "")
         
     }
     @objc func doneTapped() {
-        self.languagePickerDelegate?.didTapDone(lang: BKLanguageServiceManager.sharedInstance.languagesArray[self.selectedRow(inComponent: 0)])
+        self.languagePickerDelegate?.didTapDone(lang: LOLanguageServiceManager.shared.languagesArray[self.selectedRow(inComponent: 0)])
     }
     
     @objc func cancelTapped() {
@@ -60,10 +60,10 @@ class LanguagePickerView: UIPickerView,UIPickerViewDataSource,UIPickerViewDelega
         return 1
     }
     public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return BKLanguageServiceManager.sharedInstance.languagesArray.count
+        return LOLanguageServiceManager.shared.languagesArray.count
     }
     public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let lang = BKLanguageServiceManager.sharedInstance.languagesArray[row]
+        let lang = LOLanguageServiceManager.shared.languagesArray[row]
         let languageDescriptionStr = ("\(lang.code.uppercased()) - \(lang.fullName)")
         return languageDescriptionStr
     }
