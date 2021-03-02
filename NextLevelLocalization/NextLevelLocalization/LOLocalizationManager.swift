@@ -26,7 +26,38 @@ public final class LOLocalizationManager : NSObject {
             currentBundle = Bundle(path: getPathForLocalLanguage(language: "en"))!
         }
     }
-    
+ 
+    public func getLanguagesFromServer(url: URL)  {
+        let task = URLSession.shared.dataTask(with: url as URL) { data, response, error in
+            guard let dataResponse = data,
+                error == nil else {
+                    print(error?.localizedDescription ?? "Response Error")
+                    return }
+            do{
+                let jsonResponse = try JSONSerialization.jsonObject(with:
+                    dataResponse, options: []) as?  [String : Any]
+                if let languagesArray = jsonResponse!["languages"] as? [[String : Any]] {
+                    for lang in languagesArray {
+                        let translations = lang["translations"] as? Dictionary<String,String>
+                        let langName = lang["code"] as? String
+                        let dict : Dictionary<String, Dictionary<String, String>> = [langName!: translations!]
+                        let rt = LOLocalizable(translations:dict)
+                        do {
+                            _ = try rt.writeToBundle()
+                        }catch {
+                            print("error")
+                        }
+                    }
+                }
+            } catch let parsingError {
+                print("Error", parsingError)
+            }
+        }
+        
+        task.resume()
+
+    }
+
     public func returnCurrentBundleForLanguage(lang:String) throws -> Bundle {
         if manager.fileExists(atPath: bundlePath.path) == false {
             return Bundle(path: getPathForLocalLanguage(language: lang))!
