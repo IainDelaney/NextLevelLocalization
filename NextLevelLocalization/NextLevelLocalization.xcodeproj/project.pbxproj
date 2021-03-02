@@ -19,7 +19,6 @@
 		9E3159632399648B00F78662 /* LOLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3159622399648B00F78662 /* LOLocalization.swift */; };
 		9E315967239965F000F78662 /* LOLocalizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E315966239965F000F78662 /* LOLocalizationManager.swift */; };
 		9E31596D239967E900F78662 /* LanguagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E31596B239967E900F78662 /* LanguagePickerView.swift */; };
-		9E3159712399699000F78662 /* LOLanguageServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3159702399699000F78662 /* LOLanguageServiceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +36,6 @@
 		9E3159622399648B00F78662 /* LOLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOLocalization.swift; sourceTree = "<group>"; };
 		9E315966239965F000F78662 /* LOLocalizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOLocalizationManager.swift; sourceTree = "<group>"; };
 		9E31596B239967E900F78662 /* LanguagePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguagePickerView.swift; sourceTree = "<group>"; };
-		9E3159702399699000F78662 /* LOLanguageServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOLanguageServiceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +101,6 @@
 				9E3159622399648B00F78662 /* LOLocalization.swift */,
 				9E315966239965F000F78662 /* LOLocalizationManager.swift */,
 				9E31596B239967E900F78662 /* LanguagePickerView.swift */,
-				9E3159702399699000F78662 /* LOLanguageServiceManager.swift */,
 				9E1CE305239FEA25008119E2 /* ReadMe.md */,
 				9E31595023995D0100F78662 /* Assets.xcassets */,
 				9E31595523995D0100F78662 /* Info.plist */,
@@ -194,7 +191,6 @@
 				9E31594A23995CFD00F78662 /* AppDelegate.swift in Sources */,
 				9E3159632399648B00F78662 /* LOLocalization.swift in Sources */,
 				9E3159602399622B00F78662 /* HomeViewController.swift in Sources */,
-				9E3159712399699000F78662 /* LOLanguageServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
