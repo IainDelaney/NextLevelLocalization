@@ -36,7 +36,7 @@ class HomeViewController: UIViewController {
     @objc func doToggle(langSwitch: UISwitch) {
         if langSwitch.isOn && !langSwitch.isSelected {
             langSwitch.isSelected = true
-            LOLanguageServiceManager.shared.getLanguagesFromServer(url: URL(string: "https://api.jsonbin.io/b/5f12a6c1918061662843e6bc")!, fromVC: self)
+            LOLocalizationManager.shared.getLanguagesFromServer(url: URL(string: "https://api.jsonbin.io/b/5f12a6c1918061662843e6bc")!)
         } else {
             langSwitch.isSelected = false
         }
