@@ -22,12 +22,13 @@ class HomeViewController: UIViewController {
     var bottomConstraintHiddenToolBar: NSLayoutConstraint = NSLayoutConstraint()
     var isHidden = true
     var viewController: UIViewController!
-
+    let localizationManger = LOLocalizationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         langSwitch.setOn(false, animated: false)
         langSwitch.addTarget(self, action: #selector(doToggle(langSwitch:)), for: .valueChanged)
-        LOLocalizationManager.shared.setCurrentBundle(forLanguage: UserDefaults.selectedLanguage)
+        localizationManger.setCurrentBundle(forLanguage: UserDefaults.selectedLanguage)
         enableLanguageSelection(isNavigationBarButton: true, forViewController: self)
         NotificationCenter.default.removeObserver(self, name: Notification.Name(LOConstants.Notifications.LanguageChangeNotification), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateView), name: Notification.Name(LOConstants.Notifications.LanguageChangeNotification), object: nil)
@@ -36,22 +37,22 @@ class HomeViewController: UIViewController {
     @objc func doToggle(langSwitch: UISwitch) {
         if langSwitch.isOn && !langSwitch.isSelected {
             langSwitch.isSelected = true
-            LOLocalizationManager.shared.getLanguagesFromServer(url: URL(string: "https://api.jsonbin.io/b/5f12a6c1918061662843e6bc")!)
+            localizationManger.getLanguagesFromServer(url: URL(string: "https://api.jsonbin.io/b/5f12a6c1918061662843e6bc")!)
         } else {
             langSwitch.isSelected = false
         }
     }
     @objc func updateView() {
-        lblOne.text = NSLocalizedString(LOConstants.Labels.key1, tableName: "", bundle: LOLocalizationManager.shared.currentBundle, value: "", comment: "")
-        lblTwo.text = NSLocalizedString(LOConstants.Labels.key2, tableName: "", bundle: LOLocalizationManager.shared.currentBundle, value: "", comment: "")
-        lblThree.text = NSLocalizedString(LOConstants.Labels.key3, tableName: "", bundle: LOLocalizationManager.shared.currentBundle, value: "", comment: "")
-        lblFour.text = NSLocalizedString(LOConstants.Labels.key4, tableName: "", bundle: LOLocalizationManager.shared.currentBundle, value: "", comment: "")
-        lblFive.text = NSLocalizedString(LOConstants.Labels.key5, tableName: "", bundle: LOLocalizationManager.shared.currentBundle, value: "", comment: "")
-        lblSix.text = NSLocalizedString(LOConstants.Labels.key6, tableName: "", bundle: LOLocalizationManager.shared.currentBundle, value: "", comment: "")
-        lblSeven.text = NSLocalizedString(LOConstants.Labels.key7, tableName: "", bundle: LOLocalizationManager.shared.currentBundle, value: "", comment: "")
-        lblEight.text = NSLocalizedString(LOConstants.Labels.key8, tableName: "", bundle: LOLocalizationManager.shared.currentBundle, value: "", comment: "")
-        lblNine.text = NSLocalizedString(LOConstants.Labels.key9, tableName: "", bundle: LOLocalizationManager.shared.currentBundle, value: "", comment: "")
-        lblTen.text =  NSLocalizedString(LOConstants.Labels.key10, tableName: "", bundle: LOLocalizationManager.shared.currentBundle, value: "", comment: "")
+        lblOne.text = NSLocalizedString(LOConstants.Labels.key1, tableName: "", bundle: localizationManger.currentBundle, value: "", comment: "")
+        lblTwo.text = NSLocalizedString(LOConstants.Labels.key2, tableName: "", bundle: localizationManger.currentBundle, value: "", comment: "")
+        lblThree.text = NSLocalizedString(LOConstants.Labels.key3, tableName: "", bundle: localizationManger.currentBundle, value: "", comment: "")
+        lblFour.text = NSLocalizedString(LOConstants.Labels.key4, tableName: "", bundle: localizationManger.currentBundle, value: "", comment: "")
+        lblFive.text = NSLocalizedString(LOConstants.Labels.key5, tableName: "", bundle: localizationManger.currentBundle, value: "", comment: "")
+        lblSix.text = NSLocalizedString(LOConstants.Labels.key6, tableName: "", bundle: localizationManger.currentBundle, value: "", comment: "")
+        lblSeven.text = NSLocalizedString(LOConstants.Labels.key7, tableName: "", bundle: localizationManger.currentBundle, value: "", comment: "")
+        lblEight.text = NSLocalizedString(LOConstants.Labels.key8, tableName: "", bundle: localizationManger.currentBundle, value: "", comment: "")
+        lblNine.text = NSLocalizedString(LOConstants.Labels.key9, tableName: "", bundle: localizationManger.currentBundle, value: "", comment: "")
+        lblTen.text =  NSLocalizedString(LOConstants.Labels.key10, tableName: "", bundle: localizationManger.currentBundle, value: "", comment: "")
         changeBGColor()
     }
     func changeBGColor()  {
@@ -162,7 +163,7 @@ extension HomeViewController: LanguagePickerViewDelegate {
     }
     func didTapDone(lang: DictionaryLanguage) {
         showOrHidePicker()
-        LOLocalizationManager.shared.setCurrentBundle(forLanguage: lang.code)
+        localizationManger.setCurrentBundle(forLanguage: lang.code)
         UserDefaults.selectedLanguage = lang.code
         NotificationCenter.default.post(name: Notification.Name(LOConstants.Notifications.LanguageChangeNotification), object: nil)
         picker.updateViewForLocalisation()
